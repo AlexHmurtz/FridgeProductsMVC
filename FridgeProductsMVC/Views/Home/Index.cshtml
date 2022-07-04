@@ -1,8 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<FridgeProductsМVC.Models.Fridge>
+
+@{
+    ViewData["Title"] = "Main Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="form-horizontal">
+    @Html.ActionLink("Show all fridges", "Fridges", "Home")
+    
 </div>

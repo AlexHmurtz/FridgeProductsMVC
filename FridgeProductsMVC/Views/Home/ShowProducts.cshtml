@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FridgeProductsМVC.Models.FridgeProduct>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <table class="table table-responsive" style="width:400px">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                @if(item.Quantity > 0)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <a asp-action="AddProducts" asp-controller="Home" asp-route-id="@ViewBag.Fridge.Id">Add products</a>
+    </div>
+</div>
