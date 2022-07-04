@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FridgeProductsМVC.Models.Fridge>
+
+@{
+    ViewData["Title"] = "All Fridges";
+}
+
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <table class="table table-responsive" style="width:400px">
+            <tr>
+                <th>Model</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Owner</th>
+                <th>Options</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FridgeModel.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FridgeModel.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnerName)
+                    </td>
+                    <td>
+                        <a asp-action="ShowProducts" asp-controller="Home" asp-route-id="@item.Id">Show products</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
